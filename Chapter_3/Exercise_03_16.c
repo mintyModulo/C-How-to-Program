@@ -7,20 +7,30 @@
 
 int main(void)
 {
-    int gallonsUsed;
-    unsigned int milesDriven;
+    float gallonsUsed;
+    float milesDriven;
+    float overallGallonsUsed = 0;
+    float overallMilesDriven = 0;
 
     printf("%s", "Enter the gallons used (-1 to end): ");
-    scanf("%d", &gallonsUsed);
+    scanf("%f", &gallonsUsed);
 
     while (gallonsUsed != -1) {
         printf("%s", "Enter the miles driven: ");
-        scanf("%u", &milesDriven);
+        scanf("%f", &milesDriven);
 
+        float totalMilesDriven = milesDriven / gallonsUsed;
+
+        overallGallonsUsed = overallGallonsUsed + gallonsUsed;
+        overallMilesDriven = overallMilesDriven + milesDriven;        
+
+        printf("The miles/gallon for this tank was %f\n", totalMilesDriven);
+
+        printf("%s", "Enter the gallons used (-1 to end): ");
+        scanf("%f", &gallonsUsed);
     } // end while
     
-    // printf("The miles/gallon for this tank was %f\n", someVariable);
-
+    printf("The overall average miles/gallon was %f\n", overallMilesDriven / overallGallonsUsed);
 
     return 0;
 }
